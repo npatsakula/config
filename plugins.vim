@@ -11,7 +11,7 @@ call plug#begin('~/.config/nvim/plugins/')
 Plug 'junegunn/vim-plug'
 
 " https://github.com/dense-analysis/ale -- Asynchronous Lint Engine, working with LSP.
-Plug 'w0rp/ale', { 'for': ['haskell'] }
+Plug 'dense-analysis/ale', { 'for': ['haskell', 'rust'] }
 
 " https://github.com/scrooloose/nerdcommenter -- Comment prettifier.
 Plug 'scrooloose/nerdcommenter'
@@ -29,26 +29,18 @@ Plug 'vim-airline/vim-airline'
 " uses of the current word under the cursor.
 Plug 'RRethy/vim-illuminate'
 
-" language support
+" Language support:
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'neovimhaskell/haskell-vim'
 
-" completions
-"Plug 'ncm2/ncm2'
-
-" snippets
+" Text snippets:
 Plug 'SirVer/ultisnips'
 
-" colorschemes
+" Color scheme:
 Plug 'lifepillar/vim-gruvbox8'
-" Plug 'dkasak/gruvbox'
 
 call plug#end()
-
-augroup plug_on_insert
-  autocmd InsertEnter * call plug#load('ultisnips')
-augroup END
 
 " Settings:
 
@@ -64,3 +56,17 @@ function! AirlineInit()
 
   let g:airline_timer = timer_start(30, airline#update_statusline(), {'repeat': -1})
 autocmd User AirlineAfterInit call AirlineInit()
+
+" ALE:
+
+" [RUST] Dependencies install: rustup component add clippy rls rust-analysis rust-src
+" [HASKELL] Dependencies install: stack install brittany
+let b:ale_fixers = {
+    \ 'haskell': ['brittany'], 
+    \ 'rust': ['rustfmt']
+\}
+
+let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
+
+
+
