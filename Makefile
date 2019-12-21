@@ -21,7 +21,7 @@ system:
 	sudo apt install -y htop curl wireguard ranger neovim
 
 vim:
-	cp ./nvim ~/.config/
+	cp -r ./nvim ~/.config/
 
 ranger:
-	cp ./nvim ~/.config/
+	cp -r ./nvim ~/.config/
