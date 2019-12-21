@@ -12,6 +12,7 @@ Plug 'junegunn/vim-plug'
 
 " https://github.com/dense-analysis/ale -- Asynchronous Lint Engine, working with LSP.
 Plug 'dense-analysis/ale', { 'for': ['haskell', 'rust'] }
+Plug 'desmap/ale-sensible'
 
 " https://github.com/scrooloose/nerdcommenter -- Comment prettifier.
 Plug 'scrooloose/nerdcommenter'
@@ -23,7 +24,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'jiangmiao/auto-pairs'
 
 " https://github.com/vim-airline/vim-airline -- Vim status bar.
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 
 " https://github.com/RRethy/vim-illuminate -- Vim plugin for automatically highlighting other 
 " uses of the current word under the cursor.
@@ -44,18 +45,18 @@ call plug#end()
 
 " Settings:
 
-function! AirlineInit()
-  let g:airline_section_x = airline#section#create(['tagbar'])
-  let g:airline_section_c = airline#section#create_right(['filetype', 'readonly', 'file'])
+"function! AirlineInit()
+"  let g:airline_section_x = airline#section#create(['tagbar'])
+"  let g:airline_section_c = airline#section#create_right(['filetype', 'readonly', 'file'])
+"
+"  function! Time(...)
+"    let w:airline_section_z = airline#section#create(['%{strftime("%l:%M%p")}'])
+"  endfunction
+"  call airline#add_statusline_func('Time')
+"  endfunction
 
-  function! Time(...)
-    let w:airline_section_z = airline#section#create(['%{strftime("%l:%M%p")}'])
-  endfunction
-  call airline#add_statusline_func('Time')
-  endfunction
-
-  let g:airline_timer = timer_start(30, airline#update_statusline(), {'repeat': -1})
-autocmd User AirlineAfterInit call AirlineInit()
+"  let g:airline_timer = timer_start(30, airline#update_statusline(), {'repeat': -1})
+" autocmd User AirlineAfterInit call AirlineInit()
 
 " ALE:
 
