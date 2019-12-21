@@ -1,6 +1,6 @@
 
 
-install: cpp rust haskell system vim ranger
+install: system cpp rust haskell vim ranger
 
 cpp:
 	sudo apt install -y build-essential clang valgrind
@@ -18,7 +18,7 @@ haskell:
 system:
 	sudo add-apt-repository ppa:wireguard/wireguard
 	sudo apt update && sudo apt dist-upgrade
-	sudo apt install -y wireguard ranger neovim
+	sudo apt install -y htop curl wireguard ranger neovim
 
 vim:
 	cp ./nvim ~/.config/
