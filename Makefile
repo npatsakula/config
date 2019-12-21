@@ -1,6 +1,4 @@
-
-
-install: system cpp rust haskell vim ranger
+install: system shell cpp vim ranger rust haskell
 
 cpp:
 	sudo apt install -y build-essential clang valgrind
@@ -24,4 +22,9 @@ vim:
 	cp -r ./nvim ~/.config/
 
 ranger:
-	cp -r ./nvim ~/.config/
+	cp -r ./ranger ~/.config/
+
+shell:
+	sudo apt install zsh
+	curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -fsSL | sh
+
