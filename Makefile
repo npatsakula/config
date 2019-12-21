@@ -1,7 +1,7 @@
 install: system shell cpp vim ranger rust haskell
 
 cpp:
-	sudo apt install -y build-essential clang valgrind
+	sudo apt update && sudo apt install -y build-essential clang valgrind
 
 rust:
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -9,9 +9,7 @@ rust:
 
 haskell:
 	curl https://gitlab.haskell.org/haskell/ghcup/raw/master/bootstrap-haskell -sSf | sh
-	ghcup install
-	ghcup install-cabal
-	cabal new-install cabal-install
+	ghcup install && ghcup install-cabal && cabal new-install cabal-install
 
 system:
 	sudo add-apt-repository ppa:wireguard/wireguard
@@ -25,6 +23,6 @@ ranger:
 	cp -r ./ranger ~/.config/
 
 shell:
-	sudo apt install zsh
+	sudo apt update && sudo apt install zsh
 	curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -fsSL | sh
-
+	cp ./.zshrc ~/
