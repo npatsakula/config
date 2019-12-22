@@ -9,7 +9,8 @@ sudo apt update
 sudo apt install -y \
     htop curl autoconf \
     wireguard ranger neovim \
-    zsh build-essential clang valgrind
+    zsh build-essential clang \
+    valgrind resolvconf
 
 # Install ctags:
 sudo apt install -y libjansson-dev
