@@ -1,5 +1,3 @@
-export ZSH="~/.oh-my-zsh"
-
 ZSH_THEME="crunch"
 
 plugins=(
@@ -11,7 +9,6 @@ plugins=(
     web-search
     extract
     zsh-autosuggestions
-    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
