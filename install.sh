@@ -8,6 +8,11 @@ sudo apt update
 # Install system and cpp dependencies:
 sudo apt install -y htop curl wireguard ranger neovim zsh build-essential clang valgrind
 
+# Install ctags:
+sudo apt install -y libjansson-dev
+git clone https://github.com/universal-ctags/ctags.git --depth=1
+cd ctags && ./autogen.sh && ./configure && make && sudo make install
+
 # Install zsh + install zshrc:
 curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -fsSL | sh
 echo "export ZSH=$(echo ~/.oh-my-zsh)\n$(cat .zshrc)" > ~/.zshrc
@@ -15,7 +20,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 chsh -s $(which zsh)
 
 # Copy vim and ranger configs:
-cp -r ./{nvim, ranger} ./.config/
+cp -r ./ranger ~/.config
+cp -r ./nvim ~/.comfig
 
 # Install rust and haskell toolkit:
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
