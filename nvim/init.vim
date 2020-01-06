@@ -8,6 +8,8 @@ exec 'source '.config_path.'/plugins.vim'
 "------------------ Settings ------------------
 filetype plugin indent on
 
+map <Space> <Leader>
+
 " Enable external rc files
 set exrc
 set secure

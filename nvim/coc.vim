@@ -3,8 +3,6 @@ set hidden
 set nobackup
 set nowritebackup
 
-" Cutsom size for command message height:
-set cmdheight=3
 " Set updatetime(default=4000):
 set updatetime=300
 
