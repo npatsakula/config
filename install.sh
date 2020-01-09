@@ -1,37 +1,30 @@
-# Update repos + install update:
- sudo apt update && sudo apt dist-upgrade -y
+# Setup mirrors by location:
+sudo pacman-mirrors --geoip && sudo pacman -Syyu
 
-# Add wireguard repository:
-sudo apt-apt-repository ppa:wireguard/wireguard
-sudo apt update
+# Update repos:
+sudo pacman -Syu
 
-# Install system and cpp dependencies:
-sudo apt install -y \
-    htop curl autoconf \
-    wireguard ranger neovim \
-    zsh build-essential clang \
-    valgrind resolvconf
+# 'linux-headers' is deps for 'wireguard-dkms'
+sudo pacman -S linux-headers wireguard-tools wireguard-dkms zsh \
+    neovim ranger ctags bash-language-server rustup stack
 
-# Install ctags:
-sudo apt install -y libjansson-dev
-git clone https://github.com/universal-ctags/ctags.git --depth=1
-cd ctags && ./autogen.sh && ./configure && make && sudo make install
+# For some reason '.cargo/bin' is not added.
+export PATH=~/.cargo/bin:$PATH
 
-# Install zsh + install zshrc:
+rustup toolchain default stable
+rustup toolchain add nightly
+rustup component add rust-src rustfmt-preview clippy-preview rls
+
+# exa ~ ls | ripgrep ~ grep | sd ~ sed
+cargo install exa ripgrep sd
+
+# Install zsh + install .zshrc:
 curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -fsSL | sh
-echo "export ZSH=$(echo ~/.oh-my-zsh)\n$(cat ./.zshrc)" > ~/.zshrc
+echo "export ZSH=$(echo ~/.oh-my-zsh) \n\n$(cat ./.zshrc)" > ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 chsh -s $(which zsh)
 
 # Copy vim and ranger configs:
-cp -r ./ranger/ ~/.config/
-cp -r ./nvim/ ~/.config/
-
-# Install rust and haskell toolkit:
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-curl https://gitlab.haskell.org/haskell/ghcup/raw/master/bootstrap-haskell -sSf | sh
-echo "Execute 'ghcup install && ghcup install-cabal && cabal new-install \
-    cabal-install && rustup update' after shell reload."
-
-
+rm -R ~/.config/ranger/ && rn -R ~/.config/nvim/
+ln -sf ./ranger/ ~/.config/ranger && ln -sf ./nvim/ ~/.config/nvim
 
