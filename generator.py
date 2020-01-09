@@ -19,7 +19,7 @@ DNS = 1.1.1.1
 
 [Peer]
 PublicKey = {args.public}
-Address = {args.server}
+Endpoint = {args.server}
 AllowedIPs = 0.0.0.0/0, ::/0
 """
 
