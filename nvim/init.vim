@@ -9,6 +9,8 @@ exec 'source '.config_path.'/plugins.vim'
 filetype plugin indent on
 
 map <Space> <Leader>
+set spell spelllang=en_us,ru_ru
+set wrap linebreak nolist
 
 " Enable external rc files
 set exrc

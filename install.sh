@@ -25,6 +25,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 chsh -s $(which zsh)
 
 # Copy vim and ranger configs:
-rm -R ~/.config/ranger/ && rn -R ~/.config/nvim/
-ln -sf ./ranger/ ~/.config/ranger && ln -sf ./nvim/ ~/.config/nvim
+rm -R ~/.config/ranger/ && rm -R ~/.config/nvim/
+ln -s "$(pwd)/ranger" ~/.config && ln -s "$(pwd)/nvim" ~/.config 
 

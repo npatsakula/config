@@ -38,7 +38,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'neovimhaskell/haskell-vim'
-Plug 'python-mode/python-mode'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " Color scheme:
 Plug 'lifepillar/vim-gruvbox8'
