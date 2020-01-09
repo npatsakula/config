@@ -27,7 +27,6 @@ set cursorline
 set noshowmode
 
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-set nowrap linebreak
 
 set list listchars=tab:→\ ,trail:·,nbsp:␣,extends:⟩,precedes:⟨
 
