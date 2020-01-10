@@ -40,6 +40,7 @@ Plug 'cespare/vim-toml'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'lervag/vimtex'
 
 " Color scheme:
 Plug 'lifepillar/vim-gruvbox8'
@@ -59,3 +60,8 @@ function! AirlineInit()
   let g:airline_timer = timer_start(30, airline#update_statusline(), {'repeat': -1})
 autocmd User AirlineAfterInit call AirlineInit()
 
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'

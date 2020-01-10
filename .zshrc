@@ -12,6 +12,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+export PATH="$PATH:~/.cargo/bin"
 
 dirgen() {
     mkdir $1 && cd $1
@@ -28,4 +29,3 @@ won() {
 woff() {
     sudo wg-quick down $1
 }
-
