@@ -20,11 +20,12 @@ cargo install exa ripgrep sd
 
 # Install zsh + install .zshrc:
 curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -fsSL | sh
-echo "export ZSH=$(echo ~/.oh-my-zsh) \n\n$(cat ./.zshrc)" > ~/.zshrc
+echo "export ZSH=$(echo ~/.oh-my-zsh) \n\n$(cat ./.zshrc)" > ./.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 chsh -s $(which zsh)
 
 # Copy vim and ranger configs:
-rm -R ~/.config/ranger/ && rm -R ~/.config/nvim/
+rm -R ~/.config/ranger/ && rm -R ~/.config/nvim/ && rm ~/.zshrc
 ln -s "$(pwd)/ranger" ~/.config && ln -s "$(pwd)/nvim" ~/.config 
+ln -s "$(pwd)/.zshrc" ~/
 
