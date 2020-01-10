@@ -12,7 +12,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-export PATH="$PATH:~/.cargo/bin"
+export PATH=~/.cargo/bin:$PATH
 
 dirgen() {
     mkdir $1 && cd $1
