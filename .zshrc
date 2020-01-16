@@ -14,6 +14,10 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 export PATH=~/.cargo/bin:$PATH
 
+exat () {
+    exa --tree --level=$1 --git --long --all
+}
+
 dirgen() {
     mkdir $1 && cd $1
 }
