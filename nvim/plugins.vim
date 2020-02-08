@@ -15,7 +15,7 @@ Plug 'junegunn/vim-plug'
 " https://github.com/neoclide/coc.nvim -- Intellisense engine for vim.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 exec "source ".config_path."/coc.vim"
-let g:coc_global_extensions = ['coc-snippets', 'coc-rls', 'coc-json', 'coc-marketplace']
+let g:coc_global_extensions = ['coc-snippets', 'coc-json', 'coc-marketplace']
 
 " https://github.com/francoiscabrol/ranger.vim -- Ranger vim integration.
 " <leader>f -- open ranger.
@@ -38,9 +38,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'lervag/vimtex'
 
 " Color scheme:
 Plug 'lifepillar/vim-gruvbox8'
@@ -60,8 +60,3 @@ function! AirlineInit()
   let g:airline_timer = timer_start(30, airline#update_statusline(), {'repeat': -1})
 autocmd User AirlineAfterInit call AirlineInit()
 
-let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
