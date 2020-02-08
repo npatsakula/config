@@ -14,8 +14,16 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 export PATH=~/.cargo/bin:$PATH
 
+exal () {
+    exa -l
+}
+
 exat () {
     exa --tree --level=$1 --git --long --all
+}
+
+exaf () {
+    exa -abghHliS
 }
 
 dirgen() {

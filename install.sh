@@ -6,7 +6,8 @@ sudo pacman -Syu
 
 # 'linux-headers' is deps for 'wireguard-dkms'
 sudo pacman -S linux-headers wireguard-tools wireguard-dkms zsh \
-    neovim ranger ctags bash-language-server rustup stack clang
+    neovim ranger ctags bash-language-server rustup stack clang \
+    tokei ripgrep sd bat fd exa
 
 # For some reason '.cargo/bin' is not added.
 export PATH=~/.cargo/bin:$PATH
@@ -14,9 +15,6 @@ export PATH=~/.cargo/bin:$PATH
 rustup toolchain default stable
 rustup toolchain add nightly
 rustup component add rust-src rustfmt-preview clippy-preview rls
-
-# exa ~ ls | ripgrep ~ grep | sd ~ sed | fd-find ~ find | bat ~ cat
-cargo install exa ripgrep sd fd-find bat
 
 # Install zsh + install .zshrc:
 curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -fsSL | sh
