@@ -26,6 +26,7 @@ Plug 'francoiscabrol/ranger.vim'
 " <leader>cc -- comment current line.
 " <leader>cm -- comments the given lines only one set of multipart delimiters.
 " <leader>cs -- comments lines sexy.
+" <leader>cu -- uncomment
 Plug 'scrooloose/nerdcommenter'
 
 " https://github.com/jiangmiao/auto-pairs -- Insert or delete brackets, parens, quotes in pair.
