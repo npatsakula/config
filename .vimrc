@@ -128,7 +128,7 @@ command! -nargs=0 Format :call CocAction('format')
 
 " Rust analyzer bindings:
 nnoremap <silent> rar   :<C-u>CocCommand rust-analyzer.run<CR>
-nnoremap <silent> raem  :<C-u>CocCommand rust-analuzer.expandMacro<CR>
+nnoremap <silent> raem  :<C-u>CocCommand rust-analyzer.expandMacro<CR>
 nnoremap <silent> rare  :<C-u>CocCommand rust-analyzer.reload<CR>
 nnoremap <silent> ras   :<C-u>CocCommand rust-analyzer.analyzerStatus<CR>
 nnoremap <silent> rau   :<C-u>CocCommand rust-analyzer.upgrade<CR>
