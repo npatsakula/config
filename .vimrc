@@ -20,6 +20,7 @@ set termguicolors              " Set true colors.
 set updatetime=300             " Set shorter delay time(default is 4000ms).
 set shortmess+=c               " Don't pass messages to |ins-completion-menu|.
 set statusline=%F%m%r%h%w=(FILE_TYPE:\%{&ff}/%Y)\ [LN:\ %l\/%L,\ COL:\ %c]
+map <Space> <Leader>
 
 " Backup options:
 set nobackup
@@ -63,6 +64,11 @@ Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-snippets', 'coc-json', 'coc-marketplace', 'coc-rust-analyzer']
 
+" TOML highlight:
+Plug 'cespare/vim-toml'
+
+Plug 'neovimhaskell/haskell-vim'
+
 call plug#end()
 
 " Set color scheme:
@@ -81,7 +87,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-@> coc#refresh()
 
 " Use <cr> to confirm completion. `<C-g>u` means break unto chain at current
 " position. Coc only does snippet and additional edit on confirm.
@@ -122,6 +128,11 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
+
+" Remap keys for applying codeAction to the current line:
+nmap <leader>ac <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line:
+nmap <leader>qf <Plug>(coc-fix-current)
 
 " Add ':Format' command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
