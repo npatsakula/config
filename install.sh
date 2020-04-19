@@ -15,6 +15,7 @@ export PATH=~/.cargo/bin:$PATH
 rustup toolchain default stable
 rustup toolchain add nightly
 rustup component add rust-src rustfmt-preview clippy-preview rls
+cargo install navi
 
 # Install zsh + install .zshrc:
 curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -fsSL | sh

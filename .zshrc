@@ -13,6 +13,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 export PATH=~/.cargo/bin:$PATH
+source <(navi widget zsh)
 
 exal () {
     exa -l
