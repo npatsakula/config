@@ -67,8 +67,7 @@ let g:coc_global_extensions = ['coc-snippets', 'coc-json', 'coc-marketplace', 'c
 " TOML highlight:
 Plug 'cespare/vim-toml'
 
-Plug 'neovimhaskell/haskell-vim'
-
+" Vim tabs:
 Plug 'ap/vim-buftabline'
 
 call plug#end()
