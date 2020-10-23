@@ -1,0 +1,43 @@
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+
+plug "kak-lsp/kak-lsp" do %{
+        cargo install --locked --force --path .
+} config %{
+    hook global WinSetOption filetype=(c|cpp|rust|sh) %{
+        lsp-enable-window
+        lsp-auto-signature-help-enable
+    }
+}
+
+hook global WinSetOption filetype=rust %{
+        set buffer formatcmd "rustfmt --edition=2018"
+}
+
+map global normal '<c-f>' ': fzf-mode<ret>' -docstring 'fzf mode'
+plug "andreyorst/fzf.kak" defer fzf %{
+        set-option global fzf_preview_width '65%'
+                set-option global fzf_file_command "fd --hidden --exclude '/.git/' --type f --follow"
+                    set-option global fzf_highlight_command "bat"
+                        set-option global fzf_grep_command "rg --hidden --glob '!/.git/' --line-number --no-column --no-heading --color=never ''"
+                            set-option global fzf_window_map "ctrl-t"
+                                set-option global fzf_use_main_selection false
+}
+
+plug "andreyorst/smarttab.kak" defer smarttab %{
+        set-option global tabstop 4
+            set-option global indentwidth 4
+                set-option global softtabstop 4
+                    expandtab
+} config %{
+        hook global WinSetOption filetype=(css|sh) %{
+                    set-option window tabstop 2
+                            set-option window indentwidth 2
+                                    set-option window softtabstop 2
+        }
+            hook global WinSetOption filetype=markdown %{
+                        set-option window tabstop 3
+                                set-option window indentwidth 3
+                                        set-option window softtabstop 3
+            }
+                hook global WinSetOption filetype=(makefile|gas) noexpandtab
+}
