@@ -27,5 +27,3 @@ chsh -s $(which zsh)
 rm -R ~/.config/ranger/ && rm -R ~/.config/nvim/ && rm ~/.zshrc
 ln -s "$(pwd)/ranger" ~/.config && ln -s "$(pwd)/nvim" ~/.config 
 ln -s "$(pwd)/.zshrc" ~/
-ln -s "$(pwd)/.vimrc" ~/
-
