@@ -56,3 +56,10 @@ roots = ["compile_commands.json", ".cquery"]
 command = "clangd"
 args = ["-log=verbose", "-pretty"]
 
+[language.haskell]
+extensions = ["hs"]
+filetypes = ["haskell"]
+roots = ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"]
+command = "haskell-language-server-wrapper"
+args = ["--lsp"]
+

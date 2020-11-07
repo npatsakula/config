@@ -9,7 +9,7 @@ plug "kak-lsp/kak-lsp" do %{
     set-option global lsp_auto_highlight_references true
     set-option global lsp_server_configuration rust.clippy_preferences="on"
 
-    hook global WinSetOption filetype=(c|cpp|rust|sh) %{
+    hook global WinSetOption filetype=(c|cpp|rust|haskell|sh) %{
         map window user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
         lsp-enable-window
         lsp-auto-hover-enable
