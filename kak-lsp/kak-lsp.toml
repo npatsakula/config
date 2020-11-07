@@ -44,3 +44,15 @@ roots = ["Cargo.toml"]
 command = "rust-analyzer"
 clippy_preference="on"
 
+[language.bash]
+filetypes = ["sh"]
+roots = [".git", ".hg"]
+command = "bash-language-server"
+args = ["start"]
+
+[language.c_cpp]
+filetypes = ["c", "cpp"]
+roots = ["compile_commands.json", ".cquery"]
+command = "clangd"
+args = ["-log=verbose", "-pretty"]
+
