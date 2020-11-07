@@ -5,13 +5,25 @@ plug "kak-lsp/kak-lsp" do %{
     cargo install --locked --force --path .
 } config %{
     set-option global lsp_completion_trigger "execute-keys 'h<a-h><a-k>\S[^\h\n,=;*(){}\[\]]\z<ret>'"
+    set-option global lsp_hover_max_lines 3
+    set-option global lsp_auto_highlight_references true
+    set-option global lsp_server_configuration rust.clippy_preferences="on"
+
     hook global WinSetOption filetype=(c|cpp|rust|sh) %{
         map window user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
         lsp-enable-window
-        lsp-auto-hover-disable
-        lsp-auto-hover-insert-mode-disable
+        lsp-auto-hover-enable
+        lsp-auto-hover-insert-mode-enable
         lsp-auto-signature-help-enable
         set-option window lsp_hover_anchor false
+    }
+    hook global WinSetOption filetype=rust %{
+    hook window -group rust-inlay-hints BufReload .* rust-analyzer-inlay-hints
+    hook window -group rust-inlay-hints NormalIdle .* rust-analyzer-inlay-hints
+    hook window -group rust-inlay-hints InsertIdle .* rust-analyzer-inlay-hints
+    hook -once -always window WinSetOption filetype=.* %{
+        remove-hooks window rust-inlay-hints
+        }
     }
 }
 
