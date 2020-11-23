@@ -57,9 +57,8 @@ command = "clangd"
 args = ["-log=verbose", "-pretty"]
 
 [language.haskell]
-extensions = ["hs"]
 filetypes = ["haskell"]
-roots = ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"]
+roots = ["Setup.hs", "stack.yaml", "*.cabal"]
 command = "haskell-language-server-wrapper"
 args = ["--lsp"]
 
