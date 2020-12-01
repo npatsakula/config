@@ -54,3 +54,6 @@ map global git s  ': git status<ret>'          -docstring 'status'
 map global git d  ': git diff<ret>'            -docstring 'diff'
 map global git l  ': git log<ret>'             -docstring 'log'
 
+map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'paste after'
+map global user P '!xsel --output --clipboard<ret>'     -docstring 'paste before'
+

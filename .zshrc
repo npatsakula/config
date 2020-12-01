@@ -1,3 +1,5 @@
+export ZSH=/home/mrpink/.oh-my-zsh 
+
 ZSH_THEME="crunch"
 
 plugins=(
@@ -10,6 +12,8 @@ plugins=(
     extract
     zsh-autosuggestions
 )
+
+export EDITOR=kak
 
 source $ZSH/oh-my-zsh.sh
 export PATH=~/.cargo/bin:$PATH
@@ -42,3 +46,5 @@ won() {
 woff() {
     sudo wg-quick down $1
 }
+[ -f "/home/mrpink/.ghcup/env" ] && source "/home/mrpink/.ghcup/env" # ghcup-env
+if [ -e /home/mrpink/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mrpink/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
