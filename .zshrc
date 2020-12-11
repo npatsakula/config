@@ -1,27 +1,29 @@
 export ZSH=/home/mrpink/.oh-my-zsh 
 
-ZSH_THEME="crunch"
+ZSH_THEME="norm"
 
 plugins=(
-    git
-    cabal
     command-not-found
-    docker
-    github
-    web-search
-    extract
     zsh-autosuggestions
+    ssh-agent
+
+    # gsb -- git status -Sb
+    # gst -- git status
+    # gpf -- git push --force-with-lease
+    # gd -- git diff
+    # ga -- git add
+    # gaa -- git add --all
+    git
+
+    # `cp` with progress bar(`rsync`), use as `cpv`:
+    cp
 )
 
-export EDITOR=kak
+export EDITOR=kak;
+export VISUAL=kak;
 
 source $ZSH/oh-my-zsh.sh
 export PATH=~/.cargo/bin:$PATH
-source <(navi widget zsh)
-
-exal () {
-    exa -l
-}
 
 exat () {
     exa --tree --level=$1 --git --long --all
@@ -31,20 +33,3 @@ exaf () {
     exa -abghHliS
 }
 
-dirgen() {
-    mkdir $1 && cd $1
-}
-
-dirrem() {
-    sudo rm -R $1
-}
-
-won() {
-    sudo wg-quick up $1
-}
-
-woff() {
-    sudo wg-quick down $1
-}
-[ -f "/home/mrpink/.ghcup/env" ] && source "/home/mrpink/.ghcup/env" # ghcup-env
-if [ -e /home/mrpink/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mrpink/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
