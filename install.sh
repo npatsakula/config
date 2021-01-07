@@ -6,6 +6,8 @@ sudo pacman -Syyu
 
 # Install apps:
 sudo pacman -S \
+    # dmenu alternative
+    rofi \
     # Required for WG dkms:
     linux-headers \
     # VPN tools:
