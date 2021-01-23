@@ -1,4 +1,4 @@
-export ZSH=/home/mrpink/.oh-my-zsh 
+export ZSH=/home/nikita/.oh-my-zsh
 
 ZSH_THEME="norm"
 
@@ -24,6 +24,7 @@ export VISUAL=kak;
 
 source $ZSH/oh-my-zsh.sh
 export PATH=~/.cargo/bin:$PATH
+[ -f "/home/nikita/.ghcup/env" ] && source "/home/nikita/.ghcup/env" # ghcup-env
 
 exat () {
     exa --tree --level=$1 --git --long --all
@@ -33,3 +34,5 @@ exaf () {
     exa -abghHliS
 }
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
