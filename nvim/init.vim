@@ -73,6 +73,9 @@ Plug 'ap/vim-buftabline'
 " Git integration:
 Plug 'tpope/vim-fugitive'
 
+Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
+Plug 'junegunn/fzf.vim' " needed for previews
+
 call plug#end()
 
 " Set color scheme:
@@ -106,15 +109,14 @@ else
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" Use '[g' and ']g' to navigate diagnostics.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" Code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-defenition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nnoremap <leader>d  :<C-u>CocCommand fzf-preview.CocDiagnostics<CR>
+nnoremap <leader>bd :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
+
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gt :<C-u>CocCommand fzf-preview.CocTypeDefinitions<CR>
+nnoremap <silent> gi :<C-u>CocCommand fzf-preview.CocImplementations<CR>
+nnoremap <silent> gr :<C-u>CocCommand fzf-preview.CocReferences<CR>
 
 " Use 'K' to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -140,7 +142,7 @@ xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
 
 " Remap keys for applying codeAction to the current line:
-nmap <leader>ac <Plug>(coc-codeaction)
+nmap <leader>ca <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line:
 nmap <leader>qf <Plug>(coc-fix-current)
 
@@ -152,5 +154,5 @@ nnoremap <silent> rar   :<C-u>CocCommand rust-analyzer.run<CR>
 nnoremap <silent> raem  :<C-u>CocCommand rust-analyzer.expandMacro<CR>
 nnoremap <silent> rare  :<C-u>CocCommand rust-analyzer.reload<CR>
 nnoremap <silent> ras   :<C-u>CocCommand rust-analyzer.analyzerStatus<CR>
-nnoremap <silent> rau   :<C-u>CocCommand rust-analyzer.upgrade<CR>
 
+nmap <leader>pf         :<C-u>CocCommand fzf-preview.ProjectFiles<CR>
