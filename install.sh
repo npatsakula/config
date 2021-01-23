@@ -25,7 +25,7 @@ sudo pacman -S \
     # Text editor + LSC:
     kakoune kak-lsp
     # System tools:
-    ripgrep bat exa fd tokei flameshot tokei
+    ripgrep bat exa fd flameshot tokei
 
 # For some reason '.cargo/bin' is not added.
 export PATH=~/.cargo/bin:$PATH
@@ -39,4 +39,5 @@ chsh -s $(which zsh)
 ln -s "$(pwd)/nvim" ~/.config
 ln -s "$(pwd)/kak" ~/.config
 ln -s "$(pwd)/kak-lsp" ~/.config
-rm ~/.zshrc && ln -s "$(pwd)/.zshrc" ~/
+ln -s "$(pwd)/zsh" ~/.config/
+ln -s "$(pwd)/sway" ~/.config/
