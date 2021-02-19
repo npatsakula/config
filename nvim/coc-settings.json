@@ -4,6 +4,8 @@
   "rust-analyzer.checkOnSave.command": "clippy",
   "rust-analyzer.cargo.allFeatures": true,
   "rust-analyzer.checkOnSave.allTargets": true,
+  "rust-analyzer.updates.channel": "nightly",
+
   "languageserver": {
     "haskell": {
       "command": "haskell-language-server-wrapper",

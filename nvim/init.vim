@@ -113,7 +113,7 @@ endif
 nnoremap <leader>d  :<C-u>CocCommand fzf-preview.CocDiagnostics<CR>
 nnoremap <leader>bd :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
 
-nnoremap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
 nnoremap <silent> gt :<C-u>CocCommand fzf-preview.CocTypeDefinitions<CR>
 nnoremap <silent> gi :<C-u>CocCommand fzf-preview.CocImplementations<CR>
 nnoremap <silent> gr :<C-u>CocCommand fzf-preview.CocReferences<CR>
