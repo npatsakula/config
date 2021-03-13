@@ -6,6 +6,11 @@
   "rust-analyzer.checkOnSave.allTargets": true,
   "rust-analyzer.updates.channel": "nightly",
 
+  "clangd.arguments": [
+    "--clang-tidy",
+    "--all-scopes-completion"
+  ],
+
   "languageserver": {
     "haskell": {
       "command": "haskell-language-server-wrapper",

@@ -1,6 +1,6 @@
 " General configuration options:
 set nocompatible               " Use vim settings, rather then Vi settings.
-set backspace=indent,eol,start " Allow backspacing over idention, line breaks and insertion start.
+set backspace=indent,eol,start " Allow backspacing over ideation, line breaks and insertion start.
 set history=1000               " Set bigger history of executed commands.
 set showcmd                    " Show incomplete commands at the bottom.
 set showmode                   " Show current mode at the bottom.
@@ -57,12 +57,18 @@ endif
 
 call plug#begin('~/.config/nvim/plugins/')
 
-" Dark theme:
-Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 
 " Intellisense engine for vim:
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-snippets', 'coc-json', 'coc-marketplace', 'coc-rust-analyzer']
+let g:coc_global_extensions = ['coc-snippets',
+      \'coc-json',
+      \'coc-marketplace',
+      \'coc-rust-analyzer',
+      \'coc-fzf-preview',
+      \'coc-clangd',
+      \'coc-spell-checker'
+      \]
 
 " TOML highlight:
 Plug 'cespare/vim-toml'
@@ -76,10 +82,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim' " needed for previews
 
+Plug 'neovimhaskell/haskell-vim'
+
 call plug#end()
 
 " Set color scheme:
-colorscheme gruvbox
+colorscheme onedark
 
 " Set tabs aliases:
 nnoremap <C-N> :bnext<CR>
@@ -142,7 +150,7 @@ xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
 
 " Remap keys for applying codeAction to the current line:
-nmap <leader>ca <Plug>(coc-codeaction)
+nmap <leader>a <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line:
 nmap <leader>qf <Plug>(coc-fix-current)
 
