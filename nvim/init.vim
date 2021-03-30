@@ -67,7 +67,9 @@ let g:coc_global_extensions = ['coc-snippets',
       \'coc-rust-analyzer',
       \'coc-fzf-preview',
       \'coc-clangd',
-      \'coc-spell-checker'
+      \'coc-spell-checker',
+      \'coc-cspell-dicts',
+      \'coc-explorer',
       \]
 
 " TOML highlight:

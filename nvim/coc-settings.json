@@ -1,14 +1,21 @@
 {
-  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
-  "rust-analyzer.procMacro.enable": true,
-  "rust-analyzer.checkOnSave.command": "clippy",
-  "rust-analyzer.cargo.allFeatures": true,
-  "rust-analyzer.checkOnSave.allTargets": true,
   "rust-analyzer.updates.channel": "nightly",
+  "rust-analyzer.cargo.allFeatures": true,
+  "rust-analyzer.cargo.runBuildScripts": true,
+
+  "cSpellExt.enableDictionaries": [
+    "catalan",
+    "russian",
+    "medical-terms"
+  ],
+  "cSpell.language": "en,ru",
 
   "clangd.arguments": [
+    "--pch-storage=memory",
     "--clang-tidy",
-    "--all-scopes-completion"
+    "--all-scopes-completion",
+    "--cross-file-rename",
+    "--pretty"
   ],
 
   "languageserver": {
@@ -29,5 +36,21 @@
         "lhaskell"
       ]
     }
-  }
+  },
+  "cSpell.userWords": [
+    "Hasher",
+    "Jemalloc",
+    "Relude",
+    "clangd",
+    "critertion",
+    "datablock",
+    "jemallocator",
+    "libc",
+    "repr",
+    "structopt",
+    "teloxide",
+    "varchar",
+    "парсинга",
+    "сериализации"
+  ]
 }

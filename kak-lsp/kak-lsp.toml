@@ -46,7 +46,6 @@ command = "rust-analyzer"
 [language.rust.initialization_options]
 cargo.loadDirsFromCheck = true
 procMarco.enable = true
-clippy_preference = true
 
 [language.bash]
 filetypes = ["sh"]

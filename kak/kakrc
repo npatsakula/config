@@ -20,9 +20,6 @@ plug "kak-lsp/kak-lsp" do %{
     hook window -group rust-inlay-hints BufReload .* rust-analyzer-inlay-hints
     hook window -group rust-inlay-hints NormalIdle .* rust-analyzer-inlay-hints
     hook window -group rust-inlay-hints InsertIdle .* rust-analyzer-inlay-hints
-    hook -once -always window WinSetOption filetype=.* %{
-        remove-hooks window rust-inlay-hints
-        }
     }
 }
 
@@ -34,9 +31,8 @@ hook global WinSetOption filetype=rust %{
 
 map global normal '<c-f>' ': fzf-mode<ret>' -docstring 'fzf mode'
 plug "andreyorst/fzf.kak" defer fzf %{
-    set-option global fzf_preview_width '65%'
     set-option global fzf_file_command "fd --hidden --exclude '/.git/' --type f --follow"
-    set-option global fzf_highlight_command "bat"
+    set-option global fzf_highlight_command "bat --color=always --style=numbers {}"
     set-option global fzf_grep_command "rg --hidden --glob '!/.git/' --line-number --no-column --no-heading --color=never ''"
     set-option global fzf_window_map "ctrl-t"
     set-option global fzf_use_main_selection false
@@ -48,10 +44,6 @@ colorscheme gruvbox
 
 declare-user-mode git
 map global user v ': enter-user-mode git<ret>' -docstring 'git mode'
-
-map global git s  ': git status<ret>'          -docstring 'status'
-map global git d  ': git diff<ret>'            -docstring 'diff'
-map global git l  ': git log<ret>'             -docstring 'log'
 
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'paste after'
 map global user P '!xsel --output --clipboard<ret>'     -docstring 'paste before'
