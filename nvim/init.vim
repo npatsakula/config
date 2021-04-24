@@ -119,6 +119,7 @@ else
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
+nnoremap <leader>e :<C-u>CocCommand explorer<CR>
 
 nnoremap <leader>d  :<C-u>CocCommand fzf-preview.CocDiagnostics<CR>
 nnoremap <leader>bd :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
